@@ -1,3 +1,4 @@
+package matematics;
 import java.util.HashSet;
 import java.util.Random;
 
@@ -5,6 +6,9 @@ public class Mathematics {
 
 	static final double PI = 3.14159;
 	static final double ONE_FOOT_TO_KILOMETER_RATIO = 0.0003048;
+	static final int MIN_NUM =10;
+	static final int MAX_NUM =20;
+	static final int EXC_NUM =15;
 
 	public static double getPi() {
 		return PI;
@@ -82,25 +86,16 @@ public class Mathematics {
 
 	public int getRandomNumberBetweenTenAndTwentyButNotFifteen() {
 
-		HashSet<Integer> values = new HashSet<Integer>();
-		//Random r = new Random();
-
-		boolean lessThanTen = true;
-		boolean greaterThanTwenty = true;
-		boolean notFifteen = true;
-
-		for (int i = 0; i < 10000; i++) {
-			//int number = r.nextInt();
-			if (i < 10) {
-				lessThanTen = false;
-			} else if (i > 20) {
-				greaterThanTwenty = false;
-			} else if (i == 15) {
-				notFifteen = false;
-			} else {
-			values.add(i);
-			}
-		}
-		return values.size();
+		
+		Random r = new Random();
+		
+		int num;
+		num = r.nextInt((MAX_NUM - MIN_NUM) + 1)+MIN_NUM;
+		while(num == EXC_NUM);
+		return num;
+		
+		
+		
+		
 	}
 }
